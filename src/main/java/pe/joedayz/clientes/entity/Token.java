@@ -1,5 +1,5 @@
 package pe.joedayz.clientes.entity;
-
+// declaracion de variables para el token
 public class Token {
 	 public String access_token;
 	public String token_type;
@@ -9,8 +9,8 @@ public class Token {
 	 public Token() {
 			
 		}
-	//hooa mundo tomeos
-	 //vamos 2
+	
+	 //metodo obtener token
 	 public Token(String access_token, String token_type, String refresh_token, float expires_in, String scope) {
 		this.access_token = access_token;
 		this.token_type = token_type;
