@@ -1,0 +1,118 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+<head>
+  
+  <title>Guardar Usuario Administrador</title>
+  
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1 >Guardar Usuarios</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> <span th:text="#{Home.Title}"/></a></li>
+        <li class="active" >Guardar Usuario</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+	  <div class="row">
+        <div class="col-md-12">
+            <form role="form" th:object="${cliente}" method="post">
+                <div class="box box-primary">
+                    <br/>
+                    <div id="exTab1">
+                        <div class="box-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="1a">
+                                    <div class="form-row">
+                                         <div class="form-group col-md-6">
+                                         
+                                        
+                                         <div class="form-group col-md-6 " >
+                                            <label  for="codUsuario" th:text="Cod_Usuario"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('codUsuario')}"
+                                                   th:errors="*{codUsuario}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="codUsuario"
+                                                   th:field="${cliente.codUsuario}"
+                                                   maxlength="60">
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6 " >
+                                            <label  for="nomUsuario" th:text="Nom_Usuario"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('nomUsuario')}"
+                                                   th:errors="*{nomUsuario}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="nomUsuario"
+                                                   th:field="${cliente.nomUsuario}"
+                                                   maxlength="60">
+                                        </div>
+                                        <div class="form-group col-md-6 " >
+                                            <label  for="passwordUsuario" th:text="Contraseña"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('passwordUsuario')}"
+                                                   th:errors="*{passwordUsuario}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="passwordUsuario"
+                                                   th:field="${cliente.passwordUsuario}"
+                                                   maxlength="60">
+                                        </div>
+                                        
+                                           <div class="form-group col-md-6 ">
+                                            <label for="fechaIngreso" th:text="Fecha_Ingreso" ></label>
+                                            <input type="text" class="form-control"
+                                                   id="fechaIngreso"
+                                                   th:field="${cliente.fechaIngreso}"
+                                                   name="fechaIngreso"
+                                                   data-provide="datepicker"
+                                                   data-date-format="dd/mm/yyyy"
+                                                   data-date-language="es-PE"
+                                                   data-date-autoclose="true"
+                                                   data-date-today-highlight="true"
+                                                   data-date-end-date="0d"
+                                                   data-date-orientation="bottom"
+                                                   maxlength="10"/>
+
+                                        </div>
+                                        
+                                         <div class="form-group col-md-6 " >
+                                            <label  for="roles" th:text="Roles"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('roles')}"
+                                                   th:errors="*{roles}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="roles"
+                                                   th:field="${cliente.roles}"
+                                                   maxlength="60">
+                                        </div>
+                                    </div>
+                                </div>            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer with-border">
+                        <a th:href="@{/usuarios/list}" class="btn btn-default" role="button"
+                           title="Back list" th:text="#{ClienteForm.Cancelar}">
+                            <span aria-hidden="true"></span>
+                        </a>
+                        <button type="submit" class="box-title btn btn-primary"
+                                title="Save Data" th:text="#{ClienteForm.Guardar}">
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>        
+</body>
+</html>
