@@ -23,5 +23,5 @@ public class InfoFactura {
     public int propina;
     public double importeTotal;
     public String moneda;
-    public double pagos;
+    public ArrayList<Pago> pagos;
 }
