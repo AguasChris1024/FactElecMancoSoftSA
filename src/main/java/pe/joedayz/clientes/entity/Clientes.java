@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Clientes {
 
 	/**
-	 * Inicializa los atributos del cliente
+	 * Inicializa los atributos del la clase clientes
 	 * @param id = id del cliente
 	 * @param  Nombre = Nombre  del cliente
 	 * @param apeliido = apellido el cliente
