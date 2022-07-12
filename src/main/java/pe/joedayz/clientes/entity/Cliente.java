@@ -290,7 +290,7 @@ public class Cliente implements Serializable {
 		this.nroDocumento = nroDocumento;
 	}
 	 /* Metodo que obtiene el apellido paterno
-	  * retorna el apePaterno/
+	  * retorna el apePaterno*/
 	public String getApePaterno() {
 		return apePaterno;
 	}
