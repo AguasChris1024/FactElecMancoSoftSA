@@ -7,9 +7,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Clase clientes = Inicializa los atribuitos de clientes 
+ * @author Jess
+ * @version 2
+ * @since  1.0
+ */
 @Entity
 @Table(name = "Cliente")
 public class Clientes {
+
+	/**
+	 * Inicializa los atributos del cliente
+	 * @param id = id del cliente
+	 * @param  Nombre = Nombre  del cliente
+	 * @param apeliido = apellido el cliente
+	 * @param identificacion comprador=  la identificacion del comprador
+	 * @param direccion = direccion exacta del cliente
+	 * */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
