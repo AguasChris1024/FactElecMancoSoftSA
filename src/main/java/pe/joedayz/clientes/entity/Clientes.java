@@ -44,36 +44,45 @@ public class Clientes {
 		this.identificacionComprador = identificacionComprador;
 		this.direccion = direccion;
 	}
-	//hola mundo
+	//contructor clase clientes
 	public Clientes() {
 	}
+	//metodo para obetener el id del cliente
 	public Integer getId() {
 		return id;
 	}
+	// metodo para asignar un id
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	//metodo para obtener un nombre
 	public String getNombre() {
 		return nombre;
-	}
+	}//metodo para asignar un nombre
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	//metodo para obtener el apellido
 	public String getApellido() {
 		return apellido;
 	}
+	//metodo para asignar un apellido
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	//metodo para obetener el identificador
 	public String getIdentificacionComprador() {
 		return identificacionComprador;
 	}
+	//metodo para asignar un identificador
 	public void setIdentificacionComprador(String identificacionComprador) {
 		this.identificacionComprador = identificacionComprador;
 	}
+	//metodo para obtener la direccion
 	public String getDireccion() {
 		return direccion;
 	}
+	//metodo para asignar una direccion
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
