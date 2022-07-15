@@ -1,5 +1,11 @@
 package pe.joedayz.clientes.entity;
 
+/**
+ * Clase Usuario = Inicializa los atribuitos del usuario 
+ * @author Jess
+ * @version 1
+ * @since  1.0
+ */
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -16,6 +22,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Inicializa los atributos del la clase Usuarios
+	 * @param id = id del usuario
+	 * @param  Cod_Usuario = codigo del usuario
+	 * @param Nom_Usuario = nombre del usuario
+	 * @param Password_Usuario =  contrasena del  usuario 
+	 * @param fecha_ingreso = fecha de ingreso
+	 * */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
@@ -47,42 +61,48 @@ public class Usuario implements Serializable {
 	private Set<Role> roles;
 
 
-	
+	//metodo get para obtener el id
 	public Integer getId() {
 		return id;
 	}
+	//metodo ser para asignar un id
+
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	//metodo get para obtener el codigo del usuario
 	public String getCodUsuario() {
 		return codUsuario;
 	}
-
+//metodo ser para asignar un codigo de usuario
 	public void setCodUsuario(String codUsuario) {
 		this.codUsuario = codUsuario;
 	}
 
+	//metodo get para asignar el nombre del usuario
 	public String getNomUsuario() {
 		return nomUsuario;
 	}
+	 //metodo get para obtener el nombre del usuario 
 
 	public void setNomUsuario(String nomUsuario) {
 		this.nomUsuario = nomUsuario;
 	}
-
+	//metodo get para obtener la contrasena del usuario
 	public String getPasswordUsuario() {
 		return passwordUsuario;
 	}
-
+	//metodo get para asignar  la contrasena  del usuario
 	public void setPasswordUsuario(String passwordUsuario) {
 		this.passwordUsuario = passwordUsuario;
 	}
-
+	//metodo get para obtner  la fecha de ingreso  del usuario
 	public Date getFechaIngreso() {
 		return fechaIngreso;
 	}
+	//metodo get para asignar la fecha de ingreso  del usuario
 
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
