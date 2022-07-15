@@ -1,5 +1,6 @@
 package pe.joedayz.clientes.entity;
 // declaracion de variables para el token
+
 public class Token {
 	 public String access_token;
 	public String token_type;
@@ -10,7 +11,7 @@ public class Token {
 			
 		}
 	
-	 //metodo obtener token
+	 //Contructor token con parametros 
 	 public Token(String access_token, String token_type, String refresh_token, float expires_in, String scope) {
 		this.access_token = access_token;
 		this.token_type = token_type;
@@ -19,19 +20,19 @@ public class Token {
 		this.scope = scope;
 	}
 
-	// Getter Methods hola
+	// metodo get para obtener el acceso al token
 	 public String getAccess_token() {
 	  return access_token;
 	 }
-
+// metodo par aobtener el tipo del token
 	 public String getToken_type() {
 	  return token_type;
 	 }
- // Get metodo actualizar
+ // metodo get para actualizar el token
 	 public String getRefresh_token() {
 	  return refresh_token;
 	 }
-
+ // metodo get en el que se establece la duración de validez del token en segundos.
 	 public float getExpires_in() {
 	  return expires_in;
 	 }
