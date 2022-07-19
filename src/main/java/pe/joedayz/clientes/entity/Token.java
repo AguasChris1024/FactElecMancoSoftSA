@@ -27,7 +27,7 @@ public class Token {
 	 public String getToken_type() {
 	  return token_type;
 	 }
-
+ // Get metodo actualizar
 	 public String getRefresh_token() {
 	  return refresh_token;
 	 }
