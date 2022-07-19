@@ -40,7 +40,7 @@ public class Token {
 	  return scope;
 	 }
 
-	 // Setter Methods 
+	 // metodos getter y seter
 
 	 public void setAccess_token(String access_token) {
 	  this.access_token = access_token;
