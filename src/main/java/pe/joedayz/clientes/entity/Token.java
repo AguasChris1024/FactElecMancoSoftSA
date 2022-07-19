@@ -9,7 +9,7 @@ public class Token {
 	 public Token() {
 			
 		}
-	//hooa mundo
+	//hooa mundo tomeos
 	 public Token(String access_token, String token_type, String refresh_token, float expires_in, String scope) {
 		this.access_token = access_token;
 		this.token_type = token_type;
@@ -18,8 +18,7 @@ public class Token {
 		this.scope = scope;
 	}
 
-	// Getter Methods 
-
+	// Getter Methods hola
 	 public String getAccess_token() {
 	  return access_token;
 	 }
