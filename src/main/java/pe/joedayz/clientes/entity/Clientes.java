@@ -29,6 +29,7 @@ public class Clientes {
 		this.identificacionComprador = identificacionComprador;
 		this.direccion = direccion;
 	}
+	//hola mundo
 	public Clientes() {
 	}
 	public Integer getId() {
