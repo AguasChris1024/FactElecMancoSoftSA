@@ -1,0 +1,107 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sd="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>Facturación</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Facturacion</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Usuarios</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <a class="box-title btn btn-primary" th:href="@{/usuarios/form}">Nuevo Usuario</a>
+
+
+                    <div class="box-tools">
+                        <form th:action="@{/usuarios/list}" method="get">
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                    Show <span sd:page-size-selector="javascript"></span> entries
+
+                    <div class="table-responsive">
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Cod_Usuario</th>
+										<th>Nom_Usuario</th>
+										<th>Fecha_Ingreso</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="st,iter : ${clientes}">
+										<td th:text="${st.Id}"></td>
+										<td th:text="${st.codUsuario}"></td>
+										<td th:text="${st.nomUsuario}"></td>
+										<td th:text="${st.fechaIngreso}"></td>
+										<td><a href="#" class="btn btn-default"
+											th:href="@{/usuarios/form(id=${st.Id})}" title="Edit Data"><span
+												class="glyphicon glyphicon-edit"></span></a> <a href="#"
+											class="btn btn-default"
+											th:href="@{/clientes/delete(id=${st.Id})}"
+											title="Delete Data"><span
+												class="glyphicon glyphicon-trash"></span></a></td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- tabla token -->
+							<table class="table">
+
+								<thead>
+									<tr>
+										
+										<th>Acesotoken</th>
+										<th>Tiempo de uso(mn)</th>
+										<th>Reffresh</th>
+										<th>Scope</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="per:${tok}">
+										<td th:text="${per.access_token}"></td>
+										<td th:text="${#numbers.formatDecimal((per.expires_in/60),0,'POINT',2,'COMMA')}"></td>
+										
+										<td th:text="${per.refresh_token}"></td>
+										<td th:text="${per.scope}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+                </div>
+
+
+                <div th:if="${not #lists.isEmpty(clientes.content)}">
+
+                    <div sd:pagination-summary="">info</div>
+                    <div class="text-center">
+                        <nav>
+                            <ul class="pagination" sd:pagination="full">
+                                <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                                <li class="disabled"><a href="#" aria-label="Previous"><span
+                                        aria-hidden="true">&laquo;</span></a></li>
+                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
