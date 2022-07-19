@@ -1,0 +1,112 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+<head>
+  
+  <title>Guardar Cliente</title>
+  
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1 >Guardar Cliente</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> <span th:text="#{Home.Title}"/></a></li>
+        <li class="active" >Guardar Cliente</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+	  <div class="row">
+        <div class="col-md-12">
+            <form role="form" th:object="${cliente}" method="post">
+                <div class="box box-primary">
+                    <br/>
+                    <div id="exTab1">
+                        <div class="box-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="1a">
+                                    <div class="form-row">
+                                         <div class="form-group col-md-6">
+                                         
+                                        
+                                         <div class="form-group col-md-6 " >
+                                            <label  for="id" th:text="ID"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('id')}"
+                                                   th:errors="*{id}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="id"
+                                                   th:field="${cliente.id}"
+                                                   maxlength="60"
+                                                   disabled>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6 " >
+                                            <label  for="nombre" th:text="Nom_Cliente"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('nombre')}"
+                                                   th:errors="*{nombre}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="nombre"
+                                                   th:field="${cliente.nombre}"
+                                                   maxlength="60">
+                                        </div>
+                                        <div class="form-group col-md-6 " >
+                                            <label  for="apellido" th:text="Ape_Cliente"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('apellido')}"
+                                                   th:errors="*{apellido}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="apellido"
+                                                   th:field="${cliente.apellido}"
+                                                   maxlength="60">
+                                        </div>
+                                         <div class="form-group col-md-6 " >
+                                            <label  for="identificacionComprador" th:text="Cedula"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('identificacionComprador')}"
+                                                   th:errors="*{identificacionComprador}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="identificacionComprador"
+                                                   th:field="${cliente.identificacionComprador}"
+                                                   maxlength="60">
+                                        </div>
+                                        <div class="form-group col-md-6 " >
+                                            <label  for="direccion" th:text="Direccion"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('direccion')}"
+                                                   th:errors="*{direccion}"></small>
+                                           
+                                            <input type="text" class="form-control"
+                                                   id="direccion"
+                                                   th:field="${cliente.direccion}"
+                                                   maxlength="60">
+                                        </div>
+                                    </div>
+                                </div>            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer with-border">
+                        <a th:href="@{/usuarios/list}" class="btn btn-default" role="button"
+                           title="Back list" th:text="#{ClienteForm.Cancelar}">
+                            <span aria-hidden="true"></span>
+                        </a>
+                        <button type="submit" class="box-title btn btn-primary"
+                                title="Save Data" th:text="#{ClienteForm.Guardar}">
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>        
+</body>
+</html>
