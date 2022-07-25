@@ -1,0 +1,139 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+<head>
+  
+  <title>Guardar Producto/Servicio</title>
+  
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1 >Guardar Producto Servicio</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> <span th:text="#{Home.Title}"/></a></li>
+        <li class="active" >Guardar Producto/Servicio</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+	  <div class="row">
+        <div class="col-md-12">
+            <form role="form" th:object="${cliente}" method="post">
+                <div class="box box-primary">
+                    <br/>
+                    <div id="exTab1">
+                        <div class="box-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="1a">
+                                    <div class="form-row">
+                                         <div class="form-group col-md-6">
+                                         
+                                        
+                                         <div class="form-group col-md-6 " >
+                                            <label  for="id" th:text="ID"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('id')}"
+                                                   th:errors="*{id}"></small>
+                                           
+                                            <input  type="text" class="form-control"
+                                                   id="id"
+                                                   th:field="${cliente.id}"
+                                                   maxlength="60"
+                                                   readonly>
+                                        </div>
+                                          <div class="form-group col-md-6 " >
+                                            <label  for="codinec" th:text="Cod_INEC"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('codinec')}"
+                                                   th:errors="*{codinec}"></small>
+                                           
+                                            <input  type="text" class="form-control"
+                                                   id="codinec"
+                                                   th:field="${cliente.codinec}"
+                                                   maxlength="60"
+                                                   >
+                                        </div>
+                                        <div class="form-group col-md-6 " >
+                                            <label  for="nombre" th:text="Nombre"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('nombre')}"
+                                                   th:errors="*{nombre}"></small>
+                                           
+                                            <input  type="text" class="form-control"
+                                                   id="nombre"
+                                                   th:field="${cliente.nombre}"
+                                                   maxlength="60"
+                                                   >
+                                        </div>
+                                        <div class="form-group col-md-6 " >
+                                            <label  for="valor" th:text="Valor"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('valor')}"
+                                                   th:errors="*{valor}"></small>
+                                           
+                                            <input  type="text" class="form-control"
+                                                   id="valor"
+                                                   th:field="${cliente.valor}"
+                                                   maxlength="60"
+                                                   >
+                                        </div>
+                                      <div class="form-group col-md-6 " >
+                                            <label  for="infoadi" th:text="Info_Adicional"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('infoadi')}"
+                                                   th:errors="*{infoadi}"></small>
+                                           
+                                            <input  type="text" class="form-control"
+                                                   id="infoadi"
+                                                   th:field="${cliente.infoadi}"
+                                                   maxlength="60"
+                                                   >
+                                        </div>
+                                       <div class="form-group col-md-6 " >
+                                            <label  for="iva" th:text="IVA"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('iva')}"
+                                                   th:errors="*{iva}"></small>
+                                           
+                                            <input  type="text" class="form-control"
+                                                   id="iva"
+                                                   th:field="${cliente.iva}"
+                                                   maxlength="60"
+                                                   >
+                                        </div>
+                                        <div class="form-group col-md-6 " >
+                                            <label  for="ice" th:text="ICE"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('ice')}"
+                                                   th:errors="*{ice}"></small>
+                                           
+                                            <input  type="text" class="form-control"
+                                                   id="ice"
+                                                   th:field="${cliente.ice}"
+                                                   maxlength="60"
+                                                   >
+                                        </div>
+                                    </div>
+                                </div>            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer with-border">
+                        <a th:href="@{/productos/list}" class="btn btn-default" role="button"
+                           title="Back list" th:text="#{ClienteForm.Cancelar}">
+                            <span aria-hidden="true"></span>
+                        </a>
+                        <button type="submit" class="box-title btn btn-primary"
+                                title="Save Data" th:text="#{ClienteForm.Guardar}">
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>        
+</body>
+</html>
