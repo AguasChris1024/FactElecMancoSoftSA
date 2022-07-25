@@ -1,5 +1,4 @@
 # GESTIÓN FACTURACIÓN ELECTRÓNICA
-# Título del Proyecto
 Sistema De Facturacion Electronica Pra MancosSoftS.A_
 
 ## Comenzando 🚀
