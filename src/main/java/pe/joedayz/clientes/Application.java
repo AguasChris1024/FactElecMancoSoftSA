@@ -19,6 +19,9 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
+	/**
+	 * @return 
+	 */
 	@Bean
 	public LocaleResolver localeResolver() {
 		return new FixedLocaleResolver(new Locale("es", "PE"));
