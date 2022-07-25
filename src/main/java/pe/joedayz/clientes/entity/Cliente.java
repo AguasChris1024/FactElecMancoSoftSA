@@ -13,10 +13,60 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+/**
+ * Clase cliente = Inicializa los atribuitos de clientes 
+ * @author Jess
+ * @version  0,5
+ * @since  1.0
+ */
+
 @Entity
 @Table(name = "Clientes")
 public class Cliente implements Serializable {
 
+	/**
+	 * Inicializa los atributos del cliente
+	 * @param Cod_Socio = Codigo del socio o cliente
+	 * @param Tipo_Persona = Tipo de persona
+	 * @param Tipo_Documento= tipo de documento que posee el cliente
+	 * @param Nro_Documento = Numero de documento
+	 * @param Ape_Paterno = Apellido Paterno
+	 * @param Ape_Materno = Apellido Materno
+	 * @param  Nom_Completo = Nombre Completo
+	 * @param Fecha_Nacimiento= Fecha de nacimiento del cliente
+	 * @param Nacionalidad = nacionalidad del cliente
+	 * @param Sexo  = sexo del cliente
+	 * @param Estado_Civil estado civil 
+	 * @param  Educacion = nivel de educacion 
+	 * @param Condicion_Laboral = condicion laboral del cliente
+	 * @param CIIU
+	 * @param Profesion = profesion del cliente
+	 * @param Tip_Doc_Conyuge = Tipo de documentacion del conyuge
+	 * @param Doc_Conyuge = Documentacion del conyuge
+	 * @param Ape_Pat_Conyuge = Apellido paterno del conyuge
+	 * @param Ape_Mat_Conyuge =  Apellido materno del conyuge 
+	 * @param Nom_Conyuge = Nombre del conyuge 
+	 * @param Telefono_Fijo = Telefono fijo del cliente
+	 * @param Telefono_Celular = telefono_Celular
+	 * @param Correo_Electronico = Correo Electronico  del cliente
+	 * @param Fecha_Apertura = fecha de apertura de la cuenta
+	 * @param Carga_Familiar = carga familiar del cliente
+	 * @param Tipo_Vivienda = tipo de vivienda que posee el cliente
+	 * @param Ruc_Laboral = Ruc laboral que posee el cliente
+	 * @param Centro_Laboral = Centro Laboral del cliente
+	 * @param Cargo de cliente = cargo que posee del cliente.
+	 * @param Fecha_Ingreso =  fecha de ingreso
+	 * @param Telefono_Laboral = Telefono laboral del cliente
+	 * @param Razon social= razon social del cliente
+	 * @param Fecha_constitucion= fecha de la constitucion
+	 * @param Tipo_Empresa = tipo de empresa al que pertence el cliente 
+	 * @param Usuario_Registro variable de registro
+	 * @param Fecha_Registro = fecha de registro de usuario
+	 * @param Hora_Registro = Hora de registro de usuario
+	 * @param Nom_Tipo_persona = asignacion del tipo de persona
+	 * 
+	 * */
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -157,91 +207,118 @@ public class Cliente implements Serializable {
 	private String nomTipoPersona;
 	@Column(name = "Nom_Tipo_Documento")
 	private String nomTipoDocumento;
+	
+	/*
+	 * Administracion de  la columna de clave externa, y la colección solo se usara para obtener las entidades secundarias
+	 *  y aplicar en cascada los cambios de estado de la entidad principal a las secundarias
+	 * */
 
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Direccion> direccionList = new ArrayList<>();
 
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Representante> representanteList = new ArrayList<>();
-
+ 
+	/*Constructor de la clase cliente*/
 	public Cliente() {
 	}
+	/*Constructor de la clase cliente con parametros*/
 
 	public Cliente(Integer codSocio) {
 		this.codSocio = codSocio;
 	}
 
-
+   /* Metodo que obtiene el nombre del tipo de persona
+    * retorna el nombre tipo de persona*/
 	public String getNomTipoPersona() {
 		return nomTipoPersona;
 	}
-
+	 /* Metodo que asigna el nombre del tipo de persona
+	  * renorna nomTipoPersona*/
 	public void setNomTipoPersona(String nomTipoPersona) {
 		this.nomTipoPersona = nomTipoPersona;
 	}
-
+	 /* Metodo que obtiene el Tipo de documento
+	  * retorna el tipo de dodumento*/
 	public String getNomTipoDocumento() {
 		return nomTipoDocumento;
 	}
-
+	 /* Metodo que asigna el Tipo de documento
+	  */
 	public void setNomTipoDocumento(String nomTipoDocumento) {
 		this.nomTipoDocumento = nomTipoDocumento;
 	}
 
+	 /* Metodo que obtiene el Codigo del socio
+	  * retorna el codSocio*/
 	public Integer getCodSocio() {
 		return codSocio;
 	}
-
+    /*Metodo que asigna el codigo del socio*/
 	public void setCodSocio(Integer codSocio) {
 		this.codSocio = codSocio;
 	}
 
-
+	 /* Metodo que obtiene el Tipo de Persona*/
 	public String getTipoPersona() {
 		return tipoPersona;
 	}
-
+	 /* Metodo que asigna el Tipo de Persona*/
 	public void setTipoPersona(String tipoPersona) {
 		this.tipoPersona = tipoPersona;
 	}
+	 /* Metodo que obtiene el Tipo de documento
+	  * retorna el tipo de dodumento*/
 
 	public String getTipoDocumento() {
 		return tipoDocumento;
 	}
-
+	 /* Metodo que asingara el Tipo de documento
+	  */
 	public void setTipoDocumento(String tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
 	}
-
+	 /* Metodo que obtiene el numero de documento
+	  * retorna el nroDodumento*/
 
 	public String getNroDocumento() {
 		return nroDocumento;
-	}
+	} /* Metodo que asigna el numero de documento
+	  */
 
 	public void setNroDocumento(String nroDocumento) {
 		this.nroDocumento = nroDocumento;
 	}
-
+	 /* Metodo que obtiene el apellido paterno
+	  * retorna el apePaterno*/
 	public String getApePaterno() {
 		return apePaterno;
 	}
-
+	 /* Metodo que asigna el apellido paterno
+	*/
 	public void setApePaterno(String apePaterno) {
 		this.apePaterno = apePaterno;
 	}
 
+	 /* Metodo que obtiene el apellido materno
+	  * retorna el getMAternoo*/
 	public String getApeMaterno() {
 		return apeMaterno;
 	}
-
+	 /* Metodo que asiganra el apellido materno
+	  * 
+	  * retorna el tipo de dodumento*/
 	public void setApeMaterno(String apeMaterno) {
 		this.apeMaterno = apeMaterno;
 	}
+	 /* Metodo que obtienelos nombres
+	  * retorna los nombres*/
 
 	public String getNombres() {
 		return nombres;
 	}
-
+	 /* Metodo que asigna el nombre
+	  * retorna el tipo de dodumento*/
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
