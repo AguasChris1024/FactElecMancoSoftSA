@@ -69,7 +69,7 @@ Se emplea POJO para no implementar una interfaz especial.
 
 
 ## Video Tutorial 📹
-Se adjunta el link del [tutorial](https://github.com/veronica-platform/veronica-open-api) de uso del aplicativo. 
+Se adjunta el link del [tutorial](https://youtu.be/8sPWGiyEgbU) de uso del aplicativo. 
 
 
 
