@@ -1,0 +1,83 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sd="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>Clientes</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Gestión Cliente</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Clientes</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <a class="box-title btn btn-primary" th:href="@{/cliente/form}">Nuevo Cliente</a>
+
+
+                    <div class="box-tools">
+                        <form th:action="@{/cliente/list}" method="get">
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                    Show <span sd:page-size-selector="javascript"></span> entries
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Cedula</th>
+                                <th>Direccion</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="st,iter : ${clientes}">
+                                <td th:text="${st.id}"></td>
+                                <td th:text="${st.nombre}"></td>
+                                <td th:text="${st.apellido}"></td>                                                
+                                <td th:text="${st.identificacionComprador}"></td>
+                                <td th:text="${st.direccion}"></td>
+                                <td>
+                                    <a href="#" class="btn btn-default" th:href="@{/cliente/form(id=${st.id})}"
+                                       title="Edit Data"><span class="glyphicon glyphicon-edit"></span></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div th:if="${not #lists.isEmpty(clientes.content)}">
+
+                    <div sd:pagination-summary="">info</div>
+                    <div class="text-center">
+                        <nav>
+                            <ul class="pagination" sd:pagination="full">
+                                <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                                <li class="disabled"><a href="#" aria-label="Previous"><span
+                                        aria-hidden="true">&laquo;</span></a></li>
+                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
