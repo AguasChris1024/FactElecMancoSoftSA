@@ -4,17 +4,17 @@ Sistema De Facturacion Electronica Pra MancosSoftS.A_
 
 ## Comenzando 🚀
 
-simplemente clone el repositorio y abralo con spirng boot par apoder comenzar
+Simplemente clone el repositorio y abralo con spirng boot para poder comenzar.
 
 Mira *Deployment* para conocer como desplegar el proyecto.
 
 
 ### Pre-requisitos 📋
 
-1. clonar el repositorio de veronica open api del siguiente [VeronicaOpenApi](https://github.com/veronica-platform/veronica-open-api) 
+1. Clonar el repositorio de veronica open api del siguiente [VeronicaOpenApi](https://github.com/veronica-platform/veronica-open-api). 
 2. Seguir las instruciones de como instalar veronica es su repositorio.
 3. Instalar mysql para la gestion del sistema de facturación.
-4. instalar la version de Postgres 11 para la parte del backend que utiliza veronica.
+4. Instalar la version de Postgres 11 para la parte del backend que utiliza veronica.
 
 
 ### Instalación 🔧
@@ -24,65 +24,58 @@ Mira *Deployment* para conocer como desplegar el proyecto.
 3. Instalar Mysql.
 4. Ejecutar veronica open api.
 5. Crear las credenciales en veronica.
-6. Ejecutar el proyecto de este repositorio y conectar con mysql y listo
+6. Ejecutar el proyecto de este repositorio y conectar con mysql y listo.
 7. Disfrutar del proyecto.
 
 
 ## Ejecutando las pruebas ⚙️
 
-Explica como ejecutar las pruebas automatizadas para este sistema
+1. Crear usuarios.
+2. Comprobación de generación del token, tanto como admin y user.
+3. Registro de datos de la nueva empresa como admin.
+4. Crear certificado digital como admin.
+5. Con user, generar el token
+6. Crear la factura.
+7. Autorización de la factura electrónica.
+8. Obtener archivo XML.
+9. Enviar factura electrónica.
+10. Se pueden gestionar los productos con el CRUD.
 
 
 ### Y las pruebas de estilo de codificación ⌨️
 
-Explica que verifican estas pruebas y por qué
-
-
-Da un ejemplo
+Se emplea POJO para no implementar una interfaz especial.
 
 
 ## Despliegue 📦
 
-Agrega notas adicionales sobre como hacer deploy
+1. Cadena de conexión correcta de la base.
+2. Dependencias sean las adecuadas para la conexión.
 
 ## Construido con 🛠️
 
-Menciona las herramientas que utilizaste para crear tu proyecto
+* [Thymeliaf](https://www.thymeleaf.org/) - Biblioteca de JAVA para front-end.
+* [Spring](https://spring.io/) - Framework JAVA front-end y back end.
+* [Maven](https://maven.apache.org/) - Manejador de dependencias.
+* [MySQL](https://www.mysql.com/) - Para almacenamiento de los datos de la gestión de la información.
+* [Postgre](https://www.postgresql.org/) - Para gestionar el almacenmiento de la API Veronica.
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
-
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
 
 ## Autores ✒️
+* *Alexis Barrera* - Desarrollo - [Alexis-VsCode](https://github.com/Alexis-VsCode)
+* *Eduardo Morales* - Desarrollo - [Edward290394](https://github.com/Edward290394)
+* *Christian Aguas* - Documentación - [AguasChris1024](https://github.com/AguasChris1024)
+* *Jéssica Tituaña* - Documentación - [jess026p](https://github.com/jess026p)
 
 
-* *Andrés Villanueva* - Trabajo Inicial - [villanuevand](https://github.com/villanuevand)
-* *Fulanito Detal* - Documentación - [fulanitodetal](#fulanito-de-tal)
+## Video Tutorial 📹
+Se adjunta el link del [tutorial](https://github.com/veronica-platform/veronica-open-api) de uso del aplicativo. 
 
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
 
 
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
 * Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* Dona con cripto a esta dirección: `0xf253fc233333078436d111175e5a76a649890000`
-* etc.
+* Da las gracias públicamente
 
-
-
----
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
