@@ -58,4 +58,27 @@ public class JsController {
 			return clienteRepository.findBynombre(id);
 			
 		}
+	
+	
+	
+	
+	///
+		@GetMapping(value = "/cargar-productos/{term}", produces= {"application/json"})
+		public @ResponseBody List<Clientes> cargarProductos(@PathVariable String term) {
+			List<Clientes> p = new ArrayList<>();
+			p.add(clienteRepository.findByidentificacionComprador(term));
+			return p;
+		}
+		List<Producto> p = new ArrayList<>();
+		@GetMapping(value = "/cargar/{term}", produces= {"application/json"})
+		public @ResponseBody List<Producto> cargar(@PathVariable Integer term) {
+			p.add(productoRepository.findByid(term));
+			return p;
+		}
+	
+	
+	
+	
+	
+	
 }
