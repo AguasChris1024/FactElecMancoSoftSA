@@ -2,6 +2,13 @@ package pe.joedayz.clientes.entity;
 
 import java.util.ArrayList;
 
+/**
+ * Clase Información de Factura - Atributos que tendrá la factura respectiva.
+ * @author AG10
+ *@version 2.0
+ *@since 1.0	
+ */
+
 public class InfoFactura {
 	public String fechaEmision;
     public String dirEstablecimiento;
