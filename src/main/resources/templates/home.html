@@ -1,0 +1,59 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{Home.Title}"></title>
+    <link rel="icon" href="#" th:href="@{/img/logoManico.ico}" type="image/x-icon"/>
+</head>
+<body>
+<div layout:fragment="content" >
+
+    <div class="container my-4">
+
+  <hr class="mb-5" />
+
+   
+
+   <div class="row ml-3 mr-3">
+			<div class="col-md-1"></div>
+			<div class="animate__animated animate__bounceInUp col-md-5 ml-2 mr-2">
+				<img alt="" th:src="@{/img/lo.png}" style="max-width: 200%;">
+			</div>
+			<div
+				class="animate__animated animate__bounceInRight col-md-5 ml-3 mr-3">
+			</div>
+		</div>
+    
+    
+	
+	
+	
+	
+		
+		<div class="row mt-5">
+			<div class="animate__animated animate__bounceInUp col-md-6 ml-3 mr-3" >
+				<h1 class="display-4">Sistema de Facturacion Electronica</h1>
+				<p class="lead">
+				Fact Elect System es un proyecto de software orientado a la gestion de facturas electronicas 
+				</p>
+				<hr class="my-4">
+				<p>El proyecto es desarrollado por <a href="https://github.com/MetaBIT-Corp">MancosSoftS.A.</a></p>
+			</div>
+			<div class="animate__animated animate__bounceInRight col-md-5 ml-3 mr-3">
+				<img alt="" th:src="@{/img/LogoMa.png}" style="max-width: 100%;">
+			</div>
+		</div>
+		
+		
+		
+
+
+
+  </div>
+
+
+</div>
+</body>
+</html>

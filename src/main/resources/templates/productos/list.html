@@ -1,0 +1,91 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sd="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>Búsqueda de Productos Servicos</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Gestión de Productos Servicios</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Prodcutos Servicos</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <a class="box-title btn btn-primary" th:href="@{/productos/form}">Nuevo Pro/Serv</a>
+
+
+                    <div class="box-tools">
+                        <form th:action="@{/usuarios/list}" method="get">
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                    Show <span sd:page-size-selector="javascript"></span> entries
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Cod_INEC</th>
+                                <th>Nombre</th>
+                                <th>Valor</th>
+                                <th>Inf_Adicional</th>
+                                <th>IVA</th>
+                                <th>ICE</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="st,iter : ${clientes}">
+                                <td th:text="${st.id}"></td>
+                                <td th:text="${st.codinec}"></td>
+                                <td th:text="${st.nombre}"></td>                                                
+                                <td th:text="${st.valor}"></td>
+                                <td th:text="${st.infoadi}"></td>
+                                 <td th:text="${st.iva}"></td>
+                                  <td th:text="${st.ice}"></td>
+                                <td>
+                                    <a href="#" class="btn btn-default" th:href="@{/productos/form(id=${st.id})}"
+                                       title="Edit Data"><span class="glyphicon glyphicon-edit"></span></a>
+
+                                
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div th:if="${not #lists.isEmpty(clientes.content)}">
+
+                    <div sd:pagination-summary="">info</div>
+                    <div class="text-center">
+                        <nav>
+                            <ul class="pagination" sd:pagination="full">
+                                <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                                <li class="disabled"><a href="#" aria-label="Previous"><span
+                                        aria-hidden="true">&laquo;</span></a></li>
+                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

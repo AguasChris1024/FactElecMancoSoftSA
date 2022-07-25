@@ -1,0 +1,1766 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+<head>
+    <script>
+        $(document).ready(function () {
+
+
+            $('.inputTipoPersona_hide').addClass('collapse');
+
+
+            $('#inputTipoPersona').change(function () {
+
+                selectedText = $("#inputTipoPersona option:selected").html();
+                $("input[name='nomTipoPersona']").val(selectedText);
+
+                //Saves in a variable the wanted div
+                selector = '.inputTipoPersona_' + $(this).val();
+
+                //hide all elements
+                $('.inputTipoPersona_hide').collapse('hide');
+
+                //show only element connected to selected option
+                $(selector).collapse('show');
+            });
+
+            $('#inputTipoPersona').change(function () {
+
+                selectedText = $("#inputTipoDocumento option:selected").html();
+                $("input[name='nomTipoDocumento']").val(selectedText);
+
+
+            });
+
+
+            $("#inputApePaterno").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputApeMaterno").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputNombres").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputApePaternoOtros").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+            $("#inputApeMaternoOtros").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+            $("#inputNombresOtros").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputManzana").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputApePaternoOtrosJuridico").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputApeMaternoOtrosJuridico").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+            $("#inputNombresOtrosJuridico").bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+
+            $("#inputNroDocumento").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputTelefonoLaboral").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputTelefonoFijo").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputCelular").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+
+            $("#inputNroDocumentoOtrosJuridico").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputCargaFamiliar").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputRUC").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputRRPP").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+
+
+
+            $("#inputNroDocumentoOtros").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputNumero").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputInterior").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $("#inputLote").bind('keypress', function (event) {
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+
+            $("#inputProvincia").load('/clientes/form/ajax/provincias', $("#inputDepartamento").serialize());
+
+            var selectedText = '';
+
+            $('#inputDepartamento').on('change', function () {
+
+                selectedText = $("#inputDepartamento option:selected").html();
+                $("input[name='direccionNueva.departamento']").val(selectedText);
+
+
+                $("#inputProvincia").load('/clientes/form/ajax/provincias', $("#inputDepartamento").serialize());
+                $("#inputDistrito").empty();
+
+            });
+
+
+            $('#inputProvincia').on('change', function () {
+
+                selectedText = $("#inputProvincia option:selected").html();
+                $("input[name='direccionNueva.provincia']").val(selectedText);
+
+                $("#inputDistrito").load('/clientes/form/ajax/distritos', $("#inputProvincia").serialize());
+
+            });
+
+            $('#inputDistrito').on('change', function () {
+
+                selectedText = $("#inputDistrito option:selected").html();
+                $("input[name='direccionNueva.distrito']").val(selectedText);
+            });
+
+
+            $('#inputTipoDireccion').on('change', function () {
+
+                var selectedText = $("#inputTipoDireccion option:selected").html();
+
+                $("input[name='direccionNueva.nombreTipoDireccion']").val(selectedText);
+            });
+
+
+            $('button[name="addDireccion"]').click(function (event) {
+                event.preventDefault();
+
+
+                noErrors = validarDireccion();
+
+                if (noErrors) {
+                    selectedText = $("#inputTipoDireccion option:selected").html();
+                    $("input[name='direccionNueva.nombreTipoDireccion']").val(selectedText);
+
+                    selectedText = $("#inputDepartamento option:selected").html();
+                    $("input[name='direccionNueva.departamento']").val(selectedText);
+
+                    var data = $('form').serialize();
+                    selector = $('input[name=parametro]').val();
+                    indice = $('input[name=indice]').val();
+
+                    if (selector == "addDireccion") {
+                        data = 'addDireccion={}&' + data;
+                    } else {
+                        data = 'editDireccion=' + indice + '&' + data;
+                    }
+
+
+                    $.post('/clientes/form/ajax/direcciones', data, replaceItems);
+                }
+            });
+
+            $('button[name="addRepresentante"]').click(function (event) {
+                event.preventDefault();
+
+                noErrors = validarRepresentante();
+
+                if (noErrors) {
+
+                    selectedText = $("#inputCargoOtrosJuridico option:selected").html();
+                    $("input[name='representanteNuevo.nomCargo']").val(selectedText);
+
+                    var data = $('form').serialize();
+                    selector = $('input[name=parametroRepresentante]').val();
+                    indice = $('input[name=indiceRepresentante]').val();
+
+
+                    if (selector == "addRepresentante") {
+                        data = 'addRepresentante={}&' + data;
+                    } else {
+                        data = 'editRepresentante=' + indice + '&' + data;
+                    }
+                    $.post('/clientes/form/ajax/representantes', data, replaceRepresentantes);
+                }
+            });
+
+
+            mostrarTipoPersona();
+
+
+        });
+
+
+        function validarRepresentante() {
+
+            if ($("input[name='representanteNuevo.apePaterno']").val().length == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{apePaternoRepresentante.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+            if ($("input[name='representanteNuevo.nroDocumento']").val().length == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{nroDocumentoRepresentante.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+            if ($("input[name='representanteNuevo.apeMaterno']").val().length == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{apeMaternoRepresentante.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+            if ($("input[name='representanteNuevo.nombres']").val().length == 0) {
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{nombresRepresentante.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+            if ($("input[name='representanteNuevo.fechaCargo']").val().length == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{fechaCargoRepresentante.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+
+
+
+
+            return true;
+        }
+
+        function validarDireccion() {
+
+            isValid = true;
+
+            size = $("input[name='direccionesSize']").val();
+
+            selector = $('input[name=parametro]').val();
+            indice = $('input[name=indice]').val();
+
+
+            tipoSeleccionado = $('#inputTipoDireccion').val();
+
+            for (var i = 0, l = size; i < l; i++) {
+
+                if (selector == "editDireccion" && indice == i) {
+                    continue;
+                } else {
+
+                    tipoGuardado = $(`input[name="direccionList[${i}].tipoDireccion"]`).val();
+
+                    if (tipoGuardado === tipoSeleccionado) {
+
+                        isValid = false;
+                        break;
+                    }
+                }
+            }
+
+            if (!isValid) {
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{tipoDireccion.unique}]]',
+                    footer: ''
+                })
+                return false;
+            }
+
+
+            if ($("input[name='direccionNueva.direccion']").val().length == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{direccion.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+
+            if ($("input[name='direccionNueva.nrodireccion']").val().length == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{nrodireccion.required}]]',
+                    footer: ''
+                })
+                return false;
+            }
+            if ($("input[name='direccionNueva.interiorDpto']").val().length == 0) {
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{interiorDpto.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+            if ($("input[name='direccionNueva.mzDireccion']").val().length == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{mzDireccion.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+            if ($("input[name='direccionNueva.loteDreccion']").val().length == 0) {
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{loteDreccion.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+            if ($("input[name='direccionNueva.lugar']").val().length == 0) {
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{lugar.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+
+            if ($('#inputProvincia').val() == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{codProvincia.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+
+            if ($('#inputDistrito').val() == 0) {
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Advertencia...',
+                    text: '[[#{codDistrito.required}]]',
+                    footer: ''
+                })
+
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+        function mostrarTipoPersona() {
+            $('#inputTipoPersona').change();
+        }
+
+        function replaceItems(html) {
+            $('#direcciones').replaceWith($(html));
+            clearDireccionNueva();
+        }
+
+        function replaceRepresentantes(html) {
+            //console.log(html);
+            $('#representantes').replaceWith($(html));
+            clearRepresentanteNuevo();
+        }
+
+
+        function clearRepresentanteNuevo() {
+
+
+            $('input[name=parametroRepresentante]').val("addRepresentante");
+            $('input[name=indiceRepresentante]').val("");
+
+            $("input[name='representanteNuevo.nroDocumento']").val("");
+            $('#inputTipoDocumentoOtrosJuridico').prop('selectedIndex', 0);
+            $("input[name='representanteNuevo.apePaterno']").val("");
+            $("input[name='representanteNuevo.apeMaterno']").val("");
+            $('#inputCargoOtrosJuridico').prop('selectedIndex', 0);
+
+
+            $("input[name='representanteNuevo.nombres']").val("");
+            $("input[name='representanteNuevo.fechaCargo']").val("");
+            $("input[name='representanteNuevo.nomCargo']").val("");
+        }
+
+
+        function eliminarRepresentante(button) {
+
+
+            Swal.fire({
+                title: 'Esta Ud. seguro?',
+                text: '[[#{representante.eliminar}]]',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si!'
+            }).then((result) => {
+                if (result.value) {
+
+                    var data = $('form').serialize();
+                    data = 'removeRepresentante=' + button.value + '&' + data;
+                    //console.log(data);
+                    $.post('/clientes/form/ajax/representantes', data, replaceRepresentantes);
+
+                    Swal.fire(
+                        'Eliminado!',
+                        '[[#{representante.eliminado}]]',
+                        'success'
+                    )
+                }
+            })
+
+
+        }
+
+        function editarRepresentante(button) {
+            editarRepresentante
+
+            $('input[name=parametroRepresentante]').val("editRepresentante");
+            $('input[name=indiceRepresentante]').val(button.value);
+
+            apePaterno = $(`input[name="representanteList[${button.value}].apePaterno"]`).val();
+            $("input[name='representanteNuevo.apePaterno']").val(apePaterno);
+            apeMaterno = $(`input[name="representanteList[${button.value}].apeMaterno"]`).val();
+            $("input[name='representanteNuevo.apeMaterno']").val(apeMaterno);
+            nombres = $(`input[name="representanteList[${button.value}].nombres"]`).val();
+            $("input[name='representanteNuevo.nombres']").val(nombres);
+
+            nroDocumento = $(`input[name="representanteList[${button.value}].nroDocumento"]`).val();
+            $("input[name='representanteNuevo.nroDocumento']").val(nroDocumento);
+
+            $('#inputTipoDocumentoOtrosJuridico').val($(`input[name="representanteList[${button.value}].tipoDocumento"]`).val());
+            $('#inputCargoOtrosJuridico').val($(`input[name="representanteList[${button.value}].cargo"]`).val());
+
+            fechaCargo = $(`input[name="representanteList[${button.value}].fechaCargo"]`).val();
+            $("input[name='representanteNuevo.fechaCargo']").val(fechaCargo);
+        }
+
+        function eliminarDireccion(button) {
+
+
+            Swal.fire({
+                title: 'Esta Ud. seguro?',
+                text: '[[#{representante.AntesEliminar}]]',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si!'
+            }).then((result) => {
+                if (result.value) {
+
+                    var data = $('form').serialize();
+                    data = 'removeDireccion=' + button.value + '&' + data;
+                    //console.log(data);
+                    $.post('/clientes/form/ajax/direcciones', data, replaceItems);
+
+                    Swal.fire(
+                        'Eliminado!',
+                        '[[#{representante.HaSidoEliminado}]]',
+                        'success'
+                    )
+                }
+            })
+
+
+        }
+
+        function editarDireccion(button) {
+
+
+            $('input[name=parametro]').val("editDireccion");
+            $('input[name=indice]').val(button.value);
+
+            //pasar los datos a las cajas de texto y combobox
+            direccionData = $(`input[name="direccionList[${button.value}].direccion"]`).val();
+            $("input[name='direccionNueva.direccion']").val(direccionData);
+            nrodireccionData = $(`input[name="direccionList[${button.value}].nrodireccion"]`).val();
+            $("input[name='direccionNueva.nrodireccion']").val(nrodireccionData);
+            interiorDptoData = $(`input[name="direccionList[${button.value}].interiorDpto"]`).val();
+            $("input[name='direccionNueva.interiorDpto']").val(interiorDptoData);
+            mzDireccionData = $(`input[name="direccionList[${button.value}].mzDireccion"]`).val();
+            $("input[name='direccionNueva.mzDireccion']").val(mzDireccionData);
+            loteDreccionData = $(`input[name="direccionList[${button.value}].loteDreccion"]`).val();
+            $("input[name='direccionNueva.loteDreccion']").val(loteDreccionData);
+            lugarData = $(`input[name="direccionList[${button.value}].lugar"]`).val();
+            $("input[name='direccionNueva.lugar']").val(lugarData);
+
+            $('#inputTipoDireccion').val($(`input[name="direccionList[${button.value}].tipoDireccion"]`).val());
+            $('#inputTipoCalle').val($(`input[name="direccionList[${button.value}].tipoCalle"]`).val());
+            $('#inputTipoAgrupacion').val($(`input[name="direccionList[${button.value}].tipoAgrupacion"]`).val());
+            $("input[name='direccionNueva.nombreTipoDireccion']").val($(`input[name="direccionList[${button.value}].nombreTipoDireccion"]`).val());
+
+            $('#inputDepartamento').val($(`input[name="direccionList[${button.value}].codDpto"]`).val());
+
+            cambiarComboDepartamento(button.value);
+
+
+        }
+
+        function cambiarComboDepartamento(indice) {
+
+            selectedText = $("#inputDepartamento option:selected").html();
+            $("input[name='direccionNueva.departamento']").val(selectedText);
+
+            $("#inputProvincia").load('/clientes/form/ajax/provincias', $("#inputDepartamento").serialize(), function () {
+                $('#inputProvincia').val($(`input[name="direccionList[${indice}].codProvincia"]`).val());
+                $("#inputDistrito").empty();
+                cambiarComboDistrito(indice);
+            });
+
+
+        }
+
+        function cambiarComboDistrito(indice) {
+
+            selectedText = $("#inputProvincia option:selected").html();
+            $("input[name='direccionNueva.provincia']").val(selectedText);
+
+            $("#inputDistrito").load('/clientes/form/ajax/distritos', $("#inputProvincia").serialize(), function () {
+                $('#inputDistrito').val($(`input[name="direccionList[${indice}].codDistrito"]`).val());
+                selectedText = $("#inputDistrito option:selected").html();
+                $("input[name='direccionNueva.distrito']").val(selectedText);
+            });
+
+        }
+
+        function clearDireccionNueva() {
+
+            $('input[name=parametro]').val("addDireccion");
+            $('input[name=indice]').val("");
+
+            $("input[name='direccionNueva.nombreTipoDireccion']").val("");
+            $("input[name='direccionNueva.direccion']").val("");
+            $("input[name='direccionNueva.nrodireccion']").val("");
+            $("input[name='direccionNueva.interiorDpto']").val("");
+            $("input[name='direccionNueva.mzDireccion']").val("");
+            $("input[name='direccionNueva.loteDreccion']").val("");
+            $("input[name='direccionNueva.lugar']").val("");
+
+            $('#inputTipoDireccion').prop('selectedIndex', 0);
+            $('#inputTipoCalle').prop('selectedIndex', 0);
+            $('#inputTipoAgrupacion').prop('selectedIndex', 0);
+            $('#inputDepartamento').prop('selectedIndex', 0);
+
+            $("#inputProvincia").load('/clientes/form/ajax/provincias', $("#inputDepartamento").serialize());
+            $('#inputProvincia').prop('selectedIndex', 0);
+            $("#inputDistrito").load('/clientes/form/ajax/distritos', $("#inputProvincia").serialize());
+
+
+            $("input[name='direccionNueva.codDpto']").val($("#inputDepartamento option:selected").val());
+            $("input[name='direccionNueva.codProvincia']").val($("#inputProvincia option:selected").val());
+            $("input[name='direccionNueva.codDistrito']").val($("#inputDistrito option:selected").val());
+
+            $("input[name='direccionNueva.distrito']").val("");
+            $("input[name='direccionNueva.provincia']").val("");
+            $("input[name='direccionNueva.departamento']").val($("#inputDepartamento option:selected").val());
+
+
+        }
+
+    </script>
+    <title>Guardar cliente</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1 th:text="#{ClienteForm.Title}"></h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> <span th:text="#{Home.Title}"/></a></li>
+        <li class="active" th:text="#{ClienteForm.Title}">Guardar cliente</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <form role="form" th:object="${cliente}" method="post">
+
+
+                <div class="box box-primary">
+
+                    <ul>
+                        <li th:if="${#fields.hasErrors('direccionList')}">
+                            <small class="form-text text-danger"
+                                   th:errors="*{direccionList}"></small>
+                        </li>
+                        <li th:if="${#fields.hasErrors('representanteList')}">
+                            <small class="form-text text-danger"
+                                   th:errors="*{representanteList}"></small>
+                        </li>
+                        <li th:if="${#fields.hasErrors('direccionNueva.tipoDireccion')}">
+                            <small class="form-text text-danger"
+                                   th:errors="*{direccionNueva.tipoDireccion}"></small>
+                        </li>
+                        <li th:if="${#fields.hasErrors('docConyuge') or #fields.hasErrors('apePatConyuge') or #fields.hasErrors('apeMatConyuge')
+                                    or #fields.hasErrors('nomConyuge') or  #fields.hasErrors('rucLaboral') or #fields.hasErrors('centroLaboral')
+                                     or #fields.hasErrors('fechaIngreso')  or  #fields.hasErrors('telefonoLaboral') or  #fields.hasErrors('representanteNuevo.fechaCargo')
+                                     }">
+                            <small class="form-text text-danger"
+                                   th:text="#{otrosDatos.error}"></small>
+                        </li>
+
+                    </ul>
+
+                    <br/>
+
+                    <div id="exTab1">
+
+                        <ul class="nav nav-pills">
+                            <li class="active">
+                                <a href="#1a" data-toggle="tab" th:text="#{ClienteForm.DatosGenerales}"></a>
+                            </li>
+                            <li><a href="#2a" data-toggle="tab" th:text="#{ClienteForm.Direcciones}"></a>
+                            </li>
+                            <li><a href="#3a" data-toggle="tab" th:text="#{ClienteForm.OtrosDatos}"></a>
+                            </li>
+                        </ul>
+
+
+                        <div class="box-body">
+                            <div class="tab-content">
+                                <input th:type="hidden" th:field="${cliente.codSocio}"/>
+                                <div class="tab-pane active" id="1a">
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputTipoPersona" th:text="#{ClienteForm.TipoPersona}"></label>
+                                            <select id="inputTipoPersona"
+                                                    class="form-control"
+                                                    th:field="${cliente.tipoPersona}"
+                                                    th:if="${cliente.codSocio==null}">
+                                                <option th:each="tipoPersona : ${allTiposPersona}"
+                                                        th:value="${tipoPersona.codigo}"
+                                                        th:text="${tipoPersona.descripcion}"/>
+                                            </select>
+
+                                            <select id="inputTipoPersona"
+                                                    class="form-control"
+                                                    th:field="${cliente.tipoPersona}"
+                                                    th:unless="${cliente.codSocio==null}"
+                                                    disabled>
+                                                <option th:each="tipoPersona : ${allTiposPersona}"
+                                                        th:value="${tipoPersona.codigo}"
+                                                        th:text="${tipoPersona.descripcion}"/>
+                                            </select>
+
+                                            <input th:type="hidden"
+                                                   th:field="${cliente.tipoPersona}"
+                                                   th:if="${cliente.codSocio!=null}"/>
+                                            <input th:type="hidden"
+                                                   th:field="${cliente.nomTipoPersona}"/>
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputCondicionLaboral" th:text="#{ClienteForm.CondicionLaboral}"></label>
+                                            <select id="inputCondicionLaboral"
+                                                    class="form-control"
+                                                    th:field="${cliente.condicionLaboral}">
+                                                <option th:each="condicionLaboral : ${allCondicionLaboral}"
+                                                        th:value="${condicionLaboral.codigo}"
+                                                        th:text="${condicionLaboral.descripcion}"/>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputTipoDocumento" th:text="#{ClienteForm.TipoDocumento}"></label>
+                                            <select id="inputTipoDocumento"
+                                                    class="form-control"
+                                                    th:field="${cliente.tipoDocumento}">
+                                                <option th:each="tipoDocumento : ${allTiposDocumento}"
+                                                        th:value="${tipoDocumento.codigo}"
+                                                        th:text="${tipoDocumento.descripcion}"/>
+                                            </select>
+                                            <input th:type="hidden"
+                                                   th:field="${cliente.nomTipoDocumento}"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputActividadEconomica" th:text="#{ClienteForm.ActividadEconomica}"></label>
+                                            <select id="inputActividadEconomica"
+                                                    class="form-control"
+                                                    th:field="${cliente.ciiu}">
+                                                <option th:each="actividadEconomica : ${allActividadEconomica}"
+                                                        th:value="${actividadEconomica.codigo}"
+                                                        th:text="${actividadEconomica.descripcion}"/>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputNroDocumento" th:text="#{ClienteForm.NroDocumento}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('nroDocumento')}"
+                                                   th:errors="*{nroDocumento}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputNroDocumento"
+                                                   th:field="${cliente.nroDocumento}"
+                                                   placeholder="Nro. Documento"
+                                                   maxlength="11">
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputProfesion" th:text="#{ClienteForm.Profesion}"></label>
+                                            <select id="inputProfesion"
+                                                    class="form-control"
+                                                    th:field="${cliente.profesion}">
+                                                <option th:each="profesion : ${allProfesiones}"
+                                                        th:value="${profesion.codigo}"
+                                                        th:text="${profesion.descripcion}"/>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputApePaterno" th:text="#{ClienteForm.ApePaterno}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('apePaterno')}"
+                                                   th:errors="*{apePaterno}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputApePaterno"
+                                                   th:field="${cliente.apePaterno}"
+                                                   maxlength="20">
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputCargaFamiliar" th:text="#{ClienteForm.CargaFamiliar}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('cargaFamiliar')}"
+                                                   th:errors="*{cargaFamiliar}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputCargaFamiliar"
+                                                   th:field="${cliente.cargaFamiliar}"
+                                                   maxlength="2">&nbsp;<span
+                                                id="errmsg"></span>
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputApeMaterno" th:text="#{ClienteForm.ApeMaterno}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('apeMaterno')}"
+                                                   th:errors="*{apeMaterno}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputApeMaterno"
+                                                   th:field="${cliente.apeMaterno}"
+                                                   maxlength="20">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="inputTelefonoFijo" th:text="#{ClienteForm.TelefonoFijo}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('telefonoFijo')}"
+                                                   th:errors="*{telefonoFijo}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputTelefonoFijo"
+                                                   th:field="${cliente.telefonoFijo}"
+                                                   maxlength="10">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="inputCelular" th:text="#{ClienteForm.Celular}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('telefonoCelular')}"
+                                                   th:errors="*{telefonoCelular}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputCelular"
+                                                   th:field="${cliente.telefonoCelular}"
+                                                   maxlength="10">
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputNombres" th:text="#{ClienteForm.Nombres}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('nombres')}"
+                                                   th:errors="*{nombres}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputNombres"
+                                                   th:field="${cliente.nombres}"
+                                                   maxlength="20">
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputRazonSocial" th:text="#{ClienteForm.RazonSocial}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('razonSocial')}"
+                                                   th:errors="*{razonSocial}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputRazonSocial"
+                                                   th:field="${cliente.razonSocial}"
+                                                   maxlength="60">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputCorreoElectronico" th:text="#{ClienteForm.CorreoElectronico}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('correoElectronico')}"
+                                                   th:errors="*{correoElectronico}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputCorreoElectronico"
+                                                   th:field="${cliente.correoElectronico}"
+                                                   maxlength="40">
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputFechaConstitucion" th:text="#{ClienteForm.FechaConstitucion}"></label>&nbsp;<i
+                                                class="fa fa-calendar">
+                                        </i>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('fechaConstitucion')}"
+                                                   th:errors="*{fechaConstitucion}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputFechaConstitucion"
+                                                   th:field="${cliente.fechaConstitucion}"
+                                                   name="inputFechaConstitucion"
+                                                   data-provide="datepicker"
+                                                   data-date-format="dd/mm/yyyy"
+                                                   data-date-language="es-PE"
+                                                   data-date-autoclose="true"
+                                                   data-date-today-highlight="true"
+                                                   data-date-end-date="0d"
+                                                   data-date-orientation="bottom"
+                                                   maxlength="10"/>
+
+                                        </div>
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputFechaNacimiento" th:text="#{ClienteForm.FechaNacimiento}"></label>&nbsp;<i
+                                                class="fa fa-calendar">
+                                        </i>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('fechaNacimiento')}"
+                                                   th:errors="*{fechaNacimiento}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputFechaNacimiento"
+                                                   th:field="${cliente.fechaNacimiento}"
+                                                   name="inputFechaNacimiento"
+                                                   data-provide="datepicker"
+                                                   data-date-format="dd/mm/yyyy"
+                                                   data-date-language="es-PE"
+                                                   data-date-autoclose="true"
+                                                   data-date-today-highlight="true"
+                                                   data-date-end-date="0d"
+                                                   data-date-orientation="bottom"
+                                                   maxlength="10"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFechaApertura" th:text="#{ClienteForm.FechaApertura}"></label>&nbsp;<i
+                                                class="fa fa-calendar">
+                                        </i>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('fechaApertura')}"
+                                                   th:errors="*{fechaApertura}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputFechaApertura"
+                                                   th:field="${cliente.fechaApertura}"
+                                                   name="inputFechaApertura"
+                                                   data-provide="datepicker"
+                                                   data-date-format="dd/mm/yyyy"
+                                                   data-date-language="es-PE"
+                                                   data-date-autoclose="true"
+                                                   data-date-today-highlight="true"
+                                                   data-date-end-date="0d"
+                                                   data-date-orientation="bottom"
+                                                   maxlength="10"/>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="inputNacionalidad" th:text="#{ClienteForm.Nacionalidad}"></label>
+                                            <select id="inputNacionalidad"
+                                                    class="form-control"
+                                                    th:field="${cliente.nacionalidad}">
+                                                <option th:each="nacionalidad : ${allNacionalidades}"
+                                                        th:value="${nacionalidad.codigo}"
+                                                        th:text="${nacionalidad.descripcion}"/>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputTipoVivienda" th:text="#{ClienteForm.TipoVivienda}"></label>
+                                            <select id="inputTipoVivienda"
+                                                    class="form-control"
+                                                    th:field="${cliente.tipoVivienda}">
+                                                <option th:each="tipoVivienda : ${allTipoViviendas}"
+                                                        th:value="${tipoVivienda.codigo}"
+                                                        th:text="${tipoVivienda.descripcion}"/>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputSexo" th:text="#{ClienteForm.Sexo}"></label>
+                                            <select id="inputSexo"
+                                                    class="form-control"
+                                                    th:field="${cliente.sexo}">
+                                                <option th:each="sexo : ${allSexos}"
+                                                        th:value="${sexo.codigo}"
+                                                        th:text="${sexo.descripcion}"/>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputCalificacionInterna" th:text="#{ClienteForm.CalificacionInterna}"></label>
+                                            <select id="inputCalificacionInterna"
+                                                    class="form-control"
+                                                    th:field="${cliente.calInterna}">
+                                                <option th:each="calInterna : ${allCalificaciones}"
+                                                        th:value="${calInterna.codigo}"
+                                                        th:text="${calInterna.descripcion}"/>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputEstadoCivil" th:text="#{ClienteForm.EstadoCivil}"></label>
+                                            <select id="inputEstadoCivil"
+                                                    class="form-control"
+                                                    th:field="${cliente.estadoCivil}">
+                                                <option th:each="estadoCivil : ${allEstadosCiviles}"
+                                                        th:value="${estadoCivil.codigo}"
+                                                        th:text="${estadoCivil.descripcion}"/>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputCalificacionExterna" th:text="#{ClienteForm.CalificacionExterna}"></label>
+                                            <select id="inputCalificacionExterna"
+                                                    class="form-control"
+                                                    th:field="${cliente.calExterna}">
+                                                <option th:each="calExterna : ${allCalificaciones}"
+                                                        th:value="${calExterna.codigo}"
+                                                        th:text="${calExterna.descripcion}"/>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputEducacion" th:text="#{ClienteForm.Educacion}"></label>
+                                            <select id="inputEducacion"
+                                                    class="form-control"
+                                                    th:field="${cliente.educacion}">
+                                                <option th:each="educacion : ${allNivelesEducacion}"
+                                                        th:value="${educacion.codigo}"
+                                                        th:utext="${educacion.descripcion}"/>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputTipoEmpresa" th:text="#{ClienteForm.TipoEmpresa}"></label>
+                                            <select id="inputTipoEmpresa"
+                                                    class="form-control"
+                                                    th:field="${cliente.tipoEmpresa}">
+                                                <option th:each="tipoEmpresa : ${allTiposEmpresas}"
+                                                        th:value="${tipoEmpresa.codigo}"
+                                                        th:text="${tipoEmpresa.descripcion}"/>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputRRPP" th:text="#{ClienteForm.RRPP}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('rrpp')}"
+                                                   th:errors="*{rrpp}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputRRPP" th:field="${cliente.rrpp}"
+                                                   maxlength="10">
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputTamanho" th:text="#{ClienteForm.Tamanho}"></label>
+
+                                            <select id="inputTamanho"
+                                                    class="form-control"
+                                                    th:field="${cliente.tamanoEmpresa}">
+                                                <option th:each="tamanho : ${allTamanoEmpresa}"
+                                                        th:value="${tamanho.codigo}"
+                                                        th:text="${tamanho.descripcion}"/>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="form-group col-md-6"
+                                             sec:authorize="hasRole('SUPERVISOR')">
+                                            <label for="inputEstado" th:text="#{ClienteForm.Estado}"></label>
+                                            <select id="inputEstado"
+                                                    class="form-control"
+                                                    th:field="${cliente.activo}">
+                                                <option th:each="estado : ${allActivo}"
+                                                        th:value="${estado.codigo}"
+                                                        th:text="${estado.descripcion}"/>
+                                            </select>
+                                        </div>
+
+
+                                        <input th:type="hidden"
+                                               th:field="${cliente.activo}"
+                                               th:if="${cliente.activo!=null}"/>
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="tab-pane" id="2a">
+
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-6">
+                                            <input type="hidden" name="parametro"
+                                                   value="addDireccion"/>
+                                            <input type="hidden" name="indice"/>
+                                            <label for="inputTipoDireccion" th:text="#{ClienteForm.TipoDireccion}"></label>
+
+                                            <select id="inputTipoDireccion"
+                                                    class="form-control"
+                                                    th:field="${cliente.direccionNueva.tipoDireccion}">
+                                                <option th:each="tipoDireccion : ${allTipoDeDireccion}"
+                                                        th:value="${tipoDireccion.codigo}"
+                                                        th:text="${tipoDireccion.descripcion}"/>
+                                            </select>
+                                            <input th:type="hidden"
+                                                   th:field="${cliente.direccionNueva.nombreTipoDireccion}"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputTipoCalle" th:text="#{ClienteForm.TipoCalle}"></label>
+                                            <select id="inputTipoCalle"
+                                                    class="form-control"
+                                                    th:field="${cliente.direccionNueva.tipoCalle}">
+                                                <option th:each="tipoCalle : ${allTipoDeCalle}"
+                                                        th:value="${tipoCalle.codigo}"
+                                                        th:text="${tipoCalle.descripcion}"/>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="inputDireccion" th:text="#{ClienteForm.Direccion}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputDireccion"
+                                                   th:field="${cliente.direccionNueva.direccion}"
+                                                   maxlength="50">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputNumero" th:text="#{ClienteForm.Numero}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputNumero"
+                                                   th:field="${cliente.direccionNueva.nrodireccion}"
+                                                   maxlength="10">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputInterior" th:text="#{ClienteForm.DptoInterior}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputInterior"
+                                                   th:field="${cliente.direccionNueva.interiorDpto}"
+                                                   maxlength="20">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputManzana" th:text="#{ClienteForm.Mz}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputManzana"
+                                                   th:field="${cliente.direccionNueva.mzDireccion}"
+                                                   maxlength="10">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputLote" th:text="#{ClienteForm.Lote}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputLote"
+                                                   th:field="${cliente.direccionNueva.loteDreccion}"
+                                                   maxlength="10">
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="inputTipoAgrupacion" th:text="#{ClienteForm.TipoAgrupacion}"></label>
+                                            <select id="inputTipoAgrupacion"
+                                                    class="form-control"
+                                                    th:field="${cliente.direccionNueva.tipoAgrupacion}">
+                                                <option th:each="tipoAgrupacion : ${allTipoDeAgrupacion}"
+                                                        th:value="${tipoAgrupacion.codigo}"
+                                                        th:text="${tipoAgrupacion.descripcion}"/>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLugar" th:text="#{ClienteForm.Lugar}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputLugar"
+                                                   th:field="${cliente.direccionNueva.lugar}"
+                                                   maxlength="20">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputDepartamento" th:text="#{ClienteForm.Departamento}"></label>
+                                            <select id="inputDepartamento"
+                                                    class="form-control"
+                                                    th:field="${cliente.direccionNueva.codDpto}">
+                                                <option th:each="departamento : ${allDepartamentos}"
+                                                        th:value="${departamento.codigo}"
+                                                        th:text="${departamento.descripcion}"/>
+                                            </select>
+                                            <input th:type="hidden"
+                                                   th:field="${cliente.direccionNueva.departamento}"/>
+                                        </div>
+
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputProvincia" th:text="#{ClienteForm.Provincia}"></label>
+                                            <select id="inputProvincia"
+                                                    class="form-control"
+                                                    th:field="${cliente.direccionNueva.codProvincia}">
+
+                                                <option th:fragment="provincias"
+                                                        th:each="provincia : ${provincias}"
+                                                        th:value="${provincia.codigo}"
+                                                        th:text="${provincia.descripcion}"/>
+                                            </select>
+                                            <input th:type="hidden"
+                                                   th:field="${cliente.direccionNueva.provincia}"/>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="inputDistrito" th:text="#{ClienteForm.Distrito}"></label>
+                                            <select id="inputDistrito"
+                                                    class="form-control"
+                                                    th:field="${cliente.direccionNueva.codDistrito}">
+
+                                                <option th:fragment="distritos"
+                                                        th:each="distrito : ${distritos}"
+                                                        th:value="${distrito.codigo}"
+                                                        th:text="${distrito.descripcion}"/>
+                                            </select>
+                                            <input th:type="hidden"
+                                                   th:field="${cliente.direccionNueva.distrito}"/>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-3">
+                                            <label>&nbsp;</label>
+                                            <button type="button" name="clearDireccion"
+                                                    onclick="clearDireccionNueva()" th:text="#{ClienteForm.Nuevo}">
+
+                                            </button>
+                                            <button type="button" name="addDireccion" th:text="#{ClienteForm.Guardar}">
+
+                                            </button>
+
+                                        </div>
+
+                                        <!-- grilla -->
+
+
+                                        <div class="form-group table-responsive col-md-12">
+                                            <fieldset id="direcciones">
+                                                <table class="table table-bordered table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th th:text="#{ClienteForm.TipoDireccion}"></th>
+                                                        <th th:text="#{ClienteForm.Direccion}"></th>
+                                                        <th th:text="#{ClienteForm.Distrito}"></th>
+                                                        <th th:text="#{ClienteForm.Provincia}"></th>
+                                                        <th th:text="#{ClienteForm.Departamento}"></th>
+                                                        <th>&nbsp;</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr th:each="st,iter : ${cliente.direccionList}">
+
+                                                        <td th:text="${st.nombreTipoDireccion}"></td>
+                                                        <td th:text="${st.direccion}"></td>
+                                                        <td th:text="${st.distrito}"></td>
+                                                        <td th:text="${st.provincia}"></td>
+                                                        <td th:text="${st.departamento}"></td>
+                                                        <td>
+
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].codDireccion}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].tipoDireccion}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].nombreTipoDireccion}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].tipoCalle}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].direccion}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].nrodireccion}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].interiorDpto}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].mzDireccion}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].loteDreccion}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].tipoAgrupacion}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].lugar}">
+
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].distrito}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].provincia}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].departamento}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].codDpto}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].codProvincia}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.direccionList[__${iter.index}__].codDistrito}">
+                                                            <button type="button"
+                                                                    name="editDireccion"
+                                                                    th:value="${iter.index}"
+                                                                    onclick="editarDireccion(this)" th:text="#{ClienteForm.Editar}">
+
+                                                            </button>
+                                                            <button type="button"
+                                                                    name="removeDireccion"
+                                                                    th:value="${iter.index}"
+                                                                    onclick="eliminarDireccion(this)" th:text="#{ClienteForm.Eliminar}">
+
+                                                            </button>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr th:if="${#lists.isEmpty(cliente.direccionList)}">
+                                                        <td colspan="13"
+                                                            class="text-center" th:text="#{ClienteForm.NoHayDireccionesRegistradas}">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="13">
+                                                            <input th:type="hidden"
+                                                                   th:value="${#lists.size(cliente.direccionList)}"
+                                                                   th:name="direccionesSize"/>
+                                                        </td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </fieldset>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="3a">
+
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label th:text="#{ClienteForm.CentroLaboral}"></label>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label th:text="#{ClienteForm.DatosConyuge}"></label>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputRUC" th:text="#{ClienteForm.RUC}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('rucLaboral')}"
+                                                   th:errors="*{rucLaboral}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputRUC"
+                                                   th:field="${cliente.rucLaboral}"
+                                                   maxlength="11">
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+
+                                            <input type="hidden"
+                                                   name="parametroRepresentante"
+                                                   value="addRepresentante"/>
+                                            <input type="hidden"
+                                                   name="indiceRepresentante"/>
+                                            <label for="inputTipoDocumentoOtros" th:text="#{ClienteForm.TipoDocumento}"></label>
+                                            <select id="inputTipoDocumentoOtros"
+                                                    class="form-control"
+                                                    th:field="${cliente.tipDocConyuge}">
+                                                <option th:each="tipoDocumento : ${allTiposDocumento}"
+                                                        th:value="${tipoDocumento.codigo}"
+                                                        th:text="${tipoDocumento.descripcion}"/>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputCentroLaboral" th:text="#{ClienteForm.CentroLaboral2}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('centroLaboral')}"
+                                                   th:errors="*{centroLaboral}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputCentroLaboral"
+                                                   th:field="${cliente.centroLaboral}"
+                                                   maxlength="50">
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputNroDocumentoOtros" th:text="#{ClienteForm.NroDocumento}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('docConyuge')}"
+                                                   th:errors="*{docConyuge}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputNroDocumentoOtros"
+                                                   th:field="${cliente.docConyuge}"
+                                                   placeholder="Nro. Documento"
+                                                   maxlength="10">
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputCargo" th:text="#{ClienteForm.Cargo}"></label>
+                                            <select id="inputCargo"
+                                                    class="form-control"
+                                                    th:field="${cliente.cargo}">
+                                                <option th:each="cargo : ${allCargos}"
+                                                        th:value="${cargo.codigo}"
+                                                        th:text="${cargo.descripcion}"/>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputApePaternoOtros" th:text="#{ClienteForm.ApePaterno}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('apePatConyuge')}"
+                                                   th:errors="*{apePatConyuge}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputApePaternoOtros"
+                                                   th:field="${cliente.apePatConyuge}"
+                                                   maxlength="20">
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputFechaIngreso" th:text="#{ClienteForm.FechaIngreso}"></label>&nbsp;<i
+                                                class="fa fa-calendar">
+                                        </i>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('fechaIngreso')}"
+                                                   th:errors="*{fechaIngreso}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputFechaIngreso"
+                                                   th:field="${cliente.fechaIngreso}"
+                                                   name="inputFechaIngreso"
+                                                   data-provide="datepicker"
+                                                   data-date-format="dd/mm/yyyy"
+                                                   data-date-language="es-PE"
+                                                   data-date-autoclose="true"
+                                                   data-date-today-highlight="true"
+                                                   data-date-end-date="+365d"
+                                                   data-date-orientation="bottom"
+                                                   maxlength="10"/>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputApeMaternoOtros" th:text="#{ClienteForm.ApeMaterno}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('apeMatConyuge')}"
+                                                   th:errors="*{apeMatConyuge}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputApeMaternoOtros"
+                                                   th:field="${cliente.apeMatConyuge}"
+                                                   maxlength="20">
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputTelefonoLaboral" th:text="#{ClienteForm.TelefonoLaboral}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('telefonoLaboral')}"
+                                                   th:errors="*{telefonoLaboral}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputTelefonoLaboral"
+                                                   th:field="${cliente.telefonoLaboral}"
+                                                   maxlength="10">
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_2">
+                                            <label for="inputNombresOtros" th:text="#{ClienteForm.Nombres}"></label>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('nomConyuge')}"
+                                                   th:errors="*{nomConyuge}"></small>
+                                            <input type="text" class="form-control"
+                                                   id="inputNombresOtros"
+                                                   th:field="${cliente.nomConyuge}"
+                                                   maxlength="20">
+                                        </div>
+
+
+                                        <div class="form-group col-md-12 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label th:text="#{ClienteForm.RepresentantesLegales}"></label>
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputApePaternoOtrosJuridico" th:text="#{ClienteForm.ApePaterno}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputApePaternoOtrosJuridico"
+                                                   th:field="${cliente.representanteNuevo.apePaterno}"
+                                                   maxlength="20">
+                                        </div>
+
+                                        <div class="form-group col-md-3 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputTipoDocumentoOtrosJuridico" th:text="#{ClienteForm.TipoDocumento}"></label>
+                                            <select id="inputTipoDocumentoOtrosJuridico"
+                                                    class="form-control"
+                                                    th:field="${cliente.representanteNuevo.tipoDocumento}">
+                                                <option th:each="tipoDocumento : ${allTiposDocumento}"
+                                                        th:value="${tipoDocumento.codigo}"
+                                                        th:text="${tipoDocumento.descripcion}"/>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-3 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputNroDocumentoOtrosJuridico" th:text="#{ClienteForm.NroDocumento}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputNroDocumentoOtrosJuridico"
+                                                   th:field="${cliente.representanteNuevo.nroDocumento}"
+                                                   maxlength="10">
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputApeMaternoOtrosJuridico" th:text="#{ClienteForm.ApeMaterno}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputApeMaternoOtrosJuridico"
+                                                   th:field="${cliente.representanteNuevo.apeMaterno}"
+                                                   maxlength="20">
+                                        </div>
+
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputCargoOtrosJuridico" th:text="#{ClienteForm.Cargo}"></label>
+                                            <select id="inputCargoOtrosJuridico"
+                                                    class="form-control"
+                                                    th:field="${cliente.representanteNuevo.cargo}">
+                                                <option th:each="cargo : ${allCargos}"
+                                                        th:value="${cargo.codigo}"
+                                                        th:text="${cargo.descripcion}"/>
+                                            </select>
+
+
+                                            <input th:type="hidden"
+                                                   th:field="${cliente.representanteNuevo.nomCargo}"/>
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputNombresOtrosJuridico" th:text="#{ClienteForm.Nombres}"></label>
+                                            <input type="text" class="form-control"
+                                                   id="inputNombresOtrosJuridico"
+                                                   th:field="${cliente.representanteNuevo.nombres}"
+                                                   maxlength="20">
+                                        </div>
+
+                                        <div class="form-group col-md-6 inputTipoPersona_hide inputTipoPersona_1">
+                                            <label for="inputFechaCargo" th:text="#{ClienteForm.FechaCargo}"></label>&nbsp;<i
+                                                class="fa fa-calendar">
+                                        </i>
+                                            <small class="form-text text-danger"
+                                                   th:if="${#fields.hasErrors('representanteNuevo.fechaCargo')}"
+                                                   th:errors="*{representanteNuevo.fechaCargo}"></small>
+
+                                            <input type="text" class="form-control"
+                                                   id="inputFechaCargo"
+                                                   th:field="${cliente.representanteNuevo.fechaCargo}"
+                                                   name="inputFechaCargo"
+                                                   data-provide="datepicker"
+                                                   data-date-format="dd/mm/yyyy"
+                                                   data-date-language="es-PE"
+                                                   data-date-autoclose="true"
+                                                   data-date-today-highlight="true"
+                                                   data-date-end-date="0d"
+                                                   data-date-orientation="bottom"
+                                                   maxlength="10"/>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="form-row inputTipoPersona_hide inputTipoPersona_1">
+
+                                        <div class="form-group col-md-3">
+                                            <label>&nbsp;</label>
+                                            <button type="button"
+                                                    name="clearRepresentante"
+                                                    onclick="clearRepresentanteNuevo()" th:text="#{ClienteForm.Nuevo}">
+
+                                            </button>
+                                            <button type="button"
+                                                    name="addRepresentante" th:text="#{ClienteForm.Guardar}">
+
+                                            </button>
+
+                                        </div>
+
+                                        <!-- grilla -->
+
+                                        <div class="form-group table-responsive col-md-12">
+                                            <fieldset id="representantes">
+                                                <table class="table table-bordered table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th th:text="#{ClienteForm.NroDocumento}"></th>
+                                                        <th th:text="#{ClienteForm.Nombres}"></th>
+                                                        <th th:text="#{ClienteForm.Cargo}"></th>
+                                                        <th>&nbsp;</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr th:each="st2,iter2 : ${cliente.representanteList}">
+                                                        <td th:text="${st2.nroDocumento}"></td>
+                                                        <td><span
+                                                                th:text="${st2.apePaterno}"/>
+                                                            <span th:text="${st2.apeMaterno}"/>,
+                                                            <span th:text="${st2.nombres}"/>
+                                                        </td>
+                                                        <td th:text="${st2.nomCargo}"></td>
+                                                        <td>
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].codRepresentante}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].nroDocumento}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].tipoDocumento}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].apePaterno}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].apeMaterno}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].nombres}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].cargo}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].nomCargo}">
+                                                            <input th:type="hidden"
+                                                                   th:field="${cliente.representanteList[__${iter2.index}__].fechaCargo}">
+                                                            <button type="button"
+                                                                    name="editRepresentante"
+                                                                    th:value="${iter2.index}"
+                                                                    onclick="editarRepresentante(this)" th:text="#{ClienteForm.Editar}">
+
+                                                            </button>
+                                                            <button type="button"
+                                                                    name="removeRepresentante"
+                                                                    th:value="${iter2.index}"
+                                                                    onclick="eliminarRepresentante(this)" th:text="#{ClienteForm.Eliminar}">
+
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr th:if="${#lists.isEmpty(cliente.representanteList)}">
+                                                        <td colspan="6"
+                                                            class="text-center" th:text="#{ClienteForm.NoHayRepresentantesRegistrados}">
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </fieldset>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="box-footer with-border">
+                        <a th:href="@{/clientes/list}" class="btn btn-default" role="button"
+                           title="Back list" th:text="#{ClienteForm.Cancelar}">
+                            <span aria-hidden="true"></span>
+                        </a>
+                        <button type="submit" class="box-title btn btn-primary"
+                                title="Save Data" th:text="#{ClienteForm.Guardar}">
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
